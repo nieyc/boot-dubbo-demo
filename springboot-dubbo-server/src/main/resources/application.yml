@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: dubbo-service
+
+server:
+  port: 9092
+
+demo.service.version: 1.0.0
+
+dubbo:
+  application:
+    name: dubbo-service
+  protocol:
+    name: dubbo
+    port: 20881
+  registry:
+    address: zookeeper://localhost:2181
+  provider:
+    timeout: 1000
+
+#日志
+logging:
+  file: ./logs/${spring.application.name}
+  level:
+   com.panchan.cn.springbootdubboserver: DEBUG
+   org.springframework.web: INFO
+   org.springframework.boot: INFO

@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: dubbo-consumer
+
+server:
+  port: 9091
+
+demo.service.version: 1.0.0
+
+dubbo:
+  application:
+    name: dubbo-consumer #指定当前服务/应用的名字（同样的服务名字相同，不要和别的服务同名）
+  protocol:
+    name: dubbo
+    port: 20880
+  registry:
+    address: zookeeper://localhost:2181
+  provider:
+    timeout: 5000
+
+#日志
+logging:
+  file: ./logs/${spring.application.name}
+  level:
+   com.panchan.cn.springbootdubboclient: DEBUG
+   org.springframework.web: INFO
+   org.springframework.boot: INFO
